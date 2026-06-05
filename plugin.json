@@ -1,11 +1,19 @@
 [
-  {
-    "name": "PO18X VIP",
-    "author": "VBook User",
-    "version": 1,
-    "source": "https://po18x.vip",
-    "path": "po18x.js",
-    "type": "novel",
-    "description": "Nguồn truyện chữ bóc tách từ trang PO18X"
+    {
+  "metadata": {
+    "author": "jadeph",
+    "description": ""
+  },
+  "data": [
+    {
+      "name": "PO18X VIP",
+      "author": "jadeph",
+      "path": "po18x.js",
+      "version": 1,
+      "source": "https://po18x.vip",
+      "icon": "https://raw.githubusercontent.com/Darkrai9x/vbook-extensions/refs/heads/master/hhtqvietsub/icon.png",
+      "description": "Đọc truyện trên trang PO18X",
+      "locale": "zh_CN",
+      "type": "novel"
   }
 ]
