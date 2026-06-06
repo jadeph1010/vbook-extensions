@@ -1,39 +1,36 @@
+load('config.js');
 function execute(url) {
-    // Đảm bảo đường link truyền vào là đường dẫn tuyệt đối
-    let detailUrl = url;
-    if (url.indexOf("http") !== 0) {
-        detailUrl = "https://po18x.vip" + url;
-    }
-
-    let response = fetch(detailUrl);
-    
+    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL);
+    let response = fetch(url);
     if (response.ok) {
         let doc = response.html();
-        let chapterList = [];
-        
-        // 1. Định vị và cào danh sách chương truyện chuẩn cấu trúc po18x
-        let chapters = doc.select(".chapter-list a, .catalog-list a, .list-charts a, .section-box li a, a[href*=/chapter/]");
-        chapters.forEach(c => {
-            let cLink = c.attr("href");
-            chapterList.push({
-                name: c.text().trim(),
-                link: cLink.indexOf("http") === 0 ? cLink : "https://po18x.vip" + cLink
+        let genres = [];
+        doc.select(".tag font").forEach(e => {
+            genres.push({
+                title: e.text()
             });
         });
-
-        // 2. Trả về dữ liệu chi tiết cho VBook hiển thị giao diện sách
         return Response.success({
-            name: doc.select(".book-info h1, .title, h1, .book-title").text().trim() || "Truyện chữ PO18X",
-            author: doc.select(".author, .book-info .meta, .book-author, .author-name").text().trim() || "Ẩn danh",
-            description: doc.select(".book-desc, #novel_intro, .intro-content, .book-intro").text().trim() || "Chưa có giới thiệu.",
-            detail: doc.select(".book-status, .status, .book-meta").text().trim(),
-            volumes: [
+            name: doc.select(".book-text h1").text(),
+            cover: doc.select(".book-img img").first().attr("src"),
+            host: BASE_URL,
+            author: doc.select(".book-text span").first().text(),
+            description: doc.select(".intro").html(),
+            detail: "",
+            ongoing: doc.select(".tag span").last().text().indexOf("连载中") >= 0,
+            genres: genres,
+            suggests: [
                 {
-                    name: "Mục lục",
-                    chapters: chapterList
+                    title: "同类推荐",
+                    input: doc.select("#comment .good-wrap").html(),
+                    script: "suggest.js"
                 }
-            ]
+            ],
+            comment: {
+                input: doc.select("#comment .comment-wrap").html(),
+                script: "comment.js"
+            },
         });
     }
-    return Response.error("Không thể tải thông tin chi tiết của bộ truyện này.");
+    return null;
 }
