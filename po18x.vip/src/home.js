@@ -1,5 +1,5 @@
+load('config.js');
 function execute() {
-    const BASE_URL = "https://po18x.vip";
     return Response.success([
         { title: "Biên Tập Đề Cử (编辑推荐)", script: "rank.js", input: "https://po18x.vip" },
         { title: "Bảng Cất Chứa (收藏榜)", script: "rank.js", input: "https://po18x.vip" },
