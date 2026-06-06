@@ -10,18 +10,16 @@ function execute(url) {
     if (!match) return Response.error("Không tìm thấy ID truyện hợp lệ.");
     let bookId = parseInt(match[1] || match[0]);
     let xid = Math.floor(bookId / 1000)
-    let dataUrl = BASE_URL + '/files/' + xid + '/' + bookId + '/' + bookId + '.json';
+    let dataUrl = "https://po18x.vip" + xid + "/" + bookId + "/" + bookId + ".json";
 
     let response = fetch(dataUrl);
     if (response.ok) {
         let json = response.json();
-
         let chapters = [];
-
         json.list.forEach(item => {
             chapters.push({
                 name: item.chaptername.trim(),
-                url: BASE_URL + bookId + '/' + item.chapterid + '.html',
+                link: "https://po18x.vip" + bookId + '/' + item.chapterid + '.html',
             })
         });
 
