@@ -1,6 +1,7 @@
+load('config.js');
 function execute(url, page) {
-    const BASE_URL = "https://po18x.vip";
-    if (!page) page = '1';
+
+    if (!page) page = 1;
     
     let response = fetch(url + '/?page=' + page);
 
