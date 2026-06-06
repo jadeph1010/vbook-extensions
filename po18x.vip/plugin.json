@@ -18,7 +18,7 @@
     "chap": "chap.js",
     "home": "home.js",
     "genre": "genre.js",
-    "config": "config.js"
+    "config": "config.js",
     "gen": "gen.js",
     "rank": "rank.js"
   }
