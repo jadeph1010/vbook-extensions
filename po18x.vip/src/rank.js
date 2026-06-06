@@ -1,4 +1,4 @@
-load('config.js'); // Nạp cấu hình BASE_URL và headers thành công
+load('config.js'); 
 
 function execute(url, page) {
     if (!page) page = '1';
@@ -51,5 +51,5 @@ function execute(url, page) {
 
         return Response.success(novelList, nextPage);
     }
-    return Response.error("Không thể tải bảng xếp hạng.");
+    return null;
 }
