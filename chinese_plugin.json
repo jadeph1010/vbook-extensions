@@ -9,10 +9,10 @@
     "author": "Jadeph",
     "version": 1,
     "source": "https://po18x.vip",
-    "path": ,
+    "path": "https://raw.githubusercontent.com/jadeph1010/vbook-extensions/main/po18x.vip/icon.png",
     "description": "Đọc truyện trên po18x.vip",
     "locale": "zh_CN",
     "tag": "18+",
     "type": "chinese_novel",
-    "icon": "https://raw.githubusercontent.com/jadeph1010/vbook-extensions/main/po18x/icon.png"
+    "icon": "https://raw.githubusercontent.com/jadeph1010/vbook-extensions/main/po18x.vip/icon.png"
   }
