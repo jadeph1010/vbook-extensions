@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "name": "PO18X VIP",
+    "name": "po18xvip",
     "author": "Jadeph",
     "version": 1,
     "source": "https://po18x.vip",
@@ -9,6 +9,7 @@
     "locale": "zh_CN",
     "tag": "18+",
     "type": "chinese_novel",
+    "language": "javascript",
     "icon": "icon.png"
   },
   "script": {
