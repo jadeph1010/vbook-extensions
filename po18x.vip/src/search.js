@@ -44,5 +44,5 @@ function execute(key, page) {
         return Response.success(books);
     }
 
-    return Response.error("Tìm kiếm thất bại, vui lòng thử lại.");
+    return null;
 }
