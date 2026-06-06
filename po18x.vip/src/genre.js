@@ -1,6 +1,5 @@
-load('config.js'); // Nạp cấu hình BASE_URL và headers từ file config
-
 function execute() {
+    const BASE_URL = "https://po18x.vip";
     return Response.success([
         { title: "Đô thị (都市)", script: "home.js", input: BASE_URL + "/sort/1-1.html" },
         { title: "Tình cảm sâu đậm (浓情)", script: "home.js", input: BASE_URL + "/sort/2-1.html" },
