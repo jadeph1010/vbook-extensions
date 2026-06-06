@@ -4,7 +4,7 @@
     "author": "Jadeph",
     "version": 1,
     "source": "https://po18x.vip",
-    "regexp": "(www.|m.)?po18x.vip/b/\\d+/?",
+    "regexp": "https://www\\.po18x\\.vip/.*",
     "description": "Nguồn truyện PO18X tối ưu hóa danh mục Menu tiếng Trung và Bảng xếp hạng trang chủ",
     "locale": "zh_CN",
     "tag": "18+",
