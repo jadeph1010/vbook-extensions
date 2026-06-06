@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "name": "po18xvip",
+    "author": "Jadeph",
+    "version": 1,
+    "source": "https://po18x.vip",
+    "regexp": "https://www\\.po18x\\.vip/.*",
+    "description": "Đọc truyện trên po18x.vip",
+    "locale": "zh_CN",
+    "tag": "18+",
+    "type": "chinese_novel",
+    "icon": "icon.png"
+  },
+  "script": {
+    "toc": "toc.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "chap": "chap.js",
+    "home": "home.js",
+    "genre": "genre.js",
+    "config": "config.js"
+    "gen": "gen.js",
+    "rank": "rank.js"
+  }
+}
