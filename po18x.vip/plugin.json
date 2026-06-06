@@ -2,7 +2,7 @@
   "metadata": {
     "name": "po18xvip",
     "author": "Jadeph",
-    "version": 2,
+    "version": 1,
     "source": "https://po18x.vip",
     "regexp": "https://www\\.po18x\\.vip/.*",
     "description": "Đọc truyện trên po18x.vip",
