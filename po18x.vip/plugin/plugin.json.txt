@@ -8,7 +8,8 @@
     "description": "Nguồn truyện PO18X tối ưu hóa danh mục Menu tiếng Trung và Bảng xếp hạng trang chủ",
     "locale": "zh_CN",
     "tag": "18+",
-    "type": "chinese_novel"
+    "type": "chinese_novel",
+    "icon": "icon.png"
   },
   "script": {
     "detail": "src/detail.js",
