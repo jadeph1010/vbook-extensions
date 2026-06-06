@@ -1,26 +1,33 @@
+load('config.js');
 function execute(url) {
-    let response = fetch(url);
-    
+
+    let bookId = getBookId(url);
+    if (!bookId) return null;
+
+    let chapId = /\/(\d+).html/.exec(url)[1];
+
+    let ssid = 555;
+    let hou = '.html';
+    let xid = Math.floor(bookId / 1000)
+
+    let urlData = BASE_URL + '/files/article/html' + ssid + '/' + xid + '/' + bookId + '/' + chapId + hou;
+
+    let response = fetch(urlData);
     if (response.ok) {
-        let doc = response.html();
-        
-        // Xóa bỏ tất cả các thẻ quảng cáo, kịch bản ẩn để tránh lỗi hiển thị
-        doc.select("script, style, .ads, .advertisement, iframe").remove();
-        
-        // Chọn vùng chứa nội dung chữ chính của chương truyện
-        let contentElement = doc.select(".chapter-content, #chapter-content, .content-box, #content");
-        
-        if (contentElement) {
-            let content = contentElement.html();
-            
-            // Định dạng lại các khoảng trắng ẩn và ép xuống dòng chuẩn theo thẻ <br>
-            content = content.replace(/&nbsp;/g, " ")
-                             .replace(/<p>/g, "")
-                             .replace(/<\/p>/g, "<br><br>")
-                             .replace(/<div.*?>.*?<\/div>/g, ""); // Xóa các div quảng cáo xen kẽ
-            
-            return Response.success(content);
-        }
+        let data = response.text();
+        let txt = Script.execute(data + "\nfunction getTxt() {return cctxt;}", "getTxt", "");
+        return Response.success(txt);
     }
-    return Response.error("Không thể tải nội dung chữ của chương này.");
+
+    return null;
+}
+
+function getBookId(url) {
+    let response = fetch(url);
+
+    if (response.ok) {
+        let html = response.text();
+        return parseInt(/bookid=(\d+);/.exec(html)[1]);
+    }
+    return null;
 }
